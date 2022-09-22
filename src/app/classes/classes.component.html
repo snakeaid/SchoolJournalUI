@@ -1,0 +1,19 @@
+<div>
+<p-table [value]="classes" class="text-center" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+  <ng-template pTemplate="caption">Classes</ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Number</th>
+      <th>Class teacher</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-schoolClass>
+    <tr routerLink="/class/{{schoolClass.id}}">
+      <td>
+          {{schoolClass.number}}-{{schoolClass.letter}}
+      </td>
+      <td>{{schoolClass.classTeacher.fullName}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>

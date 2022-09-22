@@ -1,0 +1,32 @@
+<div class="flex-none flex align-items-center font-semibold text-2xl justify-content-center text-white py-2">
+  Class {{class.number}}-{{class.letter}}
+</div>
+<div class="grid">
+  <div routerLink="/teacher/{{class.classTeacher?.id}}"
+    class="col-2 align-items-center surface-0 justify-content-center text-white text-lg px-2 py-2 m-2 border-round overflow-scroll"
+    style="max-height: 20vh">
+    <b>Class Teacher</b>
+    <br/>
+    {{class.classTeacher?.fullName}}
+  </div>
+  <div class="col align-items-center surface-0 justify-content-center text-white text-lg px-3 m-2 border-round overflow-scroll"
+       style="max-height: 75vh">
+    <p-table [value]="class.students!" class="text-center" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+      <ng-template pTemplate="caption">
+        Students
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Birthday</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-student>
+        <tr routerLink="/student/{{student.id}}">
+          <td>{{student.fullName}}</td>
+          <td>{{student.birthday}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
